@@ -1,0 +1,29 @@
+# Node
+node_modules/
+**/node_modules/
+*.log
+
+# Environments
+.env
+.env.*
+
+# Frontend build outputs
+.next/
+.next-cache/
+.out/
+dist/
+build/
+
+# Hardhat / artifacts (heavy)
+fhevm-hardhat-template/artifacts/
+fhevm-hardhat-template/cache/
+fhevm-hardhat-template/deployments/solcInputs/
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# TS
+*.tsbuildinfo
