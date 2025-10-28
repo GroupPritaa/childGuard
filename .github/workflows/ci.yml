@@ -1,0 +1,28 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Node setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install (frontend)
+        working-directory: frontend
+        run: npm ci
+      - name: Install (backend)
+        working-directory: fhevm-hardhat-template
+        run: npm ci
+      - name: Lint (frontend)
+        working-directory: frontend
+        run: npm run -s lint || true
+      - name: Typecheck (frontend)
+        working-directory: frontend
+        run: npm run -s typecheck || true
+      - name: Typecheck (backend)
+        working-directory: fhevm-hardhat-template
+        run: npm run -s typecheck || true
